@@ -1,12 +1,12 @@
 import React from 'react';
+import VoteBox from './VoteBox.js';
 
 const ArticleCard = function (props) {
   return (
     <div className='box'>
       <article className='media'>
         <div className='media-left'>
-          <p>Upvotes:</p>
-          {props.votes}
+          <p><VoteBox /></p>
         </div>
         <div className='media-content'>
           <div className='content'>
