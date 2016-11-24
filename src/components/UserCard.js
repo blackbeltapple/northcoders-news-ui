@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const UserCard = React.createClass ({
   render () {
@@ -10,7 +11,8 @@ const UserCard = React.createClass ({
           </div>
           <div className='media-content'>
             <div className='content'>
-              <h3 className='title is-3'>Im a massive tremendous fool</h3>
+              // /userlist/:user
+              <h3 className='title is-3'><Link to={`/userlist/bob`}>Im a massive tremendous fool</Link></h3>
             </div>
           </div>
         </article>

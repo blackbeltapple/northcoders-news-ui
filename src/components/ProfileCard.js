@@ -10,7 +10,7 @@ const ProfileCard = React.createClass ({
           </div>
           <div className='media-content'>
             <div className='content'>
-              <h3 className='title is-3'>Comment Card</h3>
+              <h3 className='title is-3'>User Profile</h3>
             </div>
           </div>
         </article>

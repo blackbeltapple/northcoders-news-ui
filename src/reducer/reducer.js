@@ -11,6 +11,10 @@ function reducer (prevState = initialState, action) {
   if (action.type === types.FETCH_ARTICLES_SUCCESS) {
     newState.articles = action.data.articles;
   }
+  // 
+  // switch (action.type) {
+  //
+  // }
 
   return newState;
 }
