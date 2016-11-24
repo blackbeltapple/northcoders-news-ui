@@ -9,6 +9,10 @@ import createLogger from 'redux-logger';
 import App from './components/App';
 import ArticleList from './components/ArticleList';
 import reducer from './reducer/reducer';
+import Article from './components/Article';
+import Userlist from './components/Userlist';
+import User from './components/User';
+
 
 const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
@@ -16,6 +20,10 @@ ReactDOM.render(<Provider store={store}>
                   <Router history={browserHistory}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
+                      <Route path='/articles' component={ArticleList}></Route>
+                      <Route path='/articles/:article' component={Article}></Route>
+                      <Route path='/userlist' component={Userlist}></Route>
+                      <Route path='/userlist/:user' component={User}></Route>
                     </Route>
                   </Router>
                 </Provider>, document.getElementById('app'));
