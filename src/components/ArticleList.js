@@ -10,10 +10,10 @@ const ArticleList = React.createClass({
     this.props.fetchArticles();
   },
   render () {
+    // this.props.params.topic
     return (
       <div id='ArticleList'>
-        <TopicBar />
-        <p>filter is: {this.props.params.topic}</p>
+        {console.log('this.props.filter in ArticleList', this.props.filter)}
         {this.props.articles.map(function (article, i) {
           return <ArticleCard title={article.title} votes={article.votes} id={article._id} key={i} />;
         })}
@@ -31,7 +31,7 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch, props) {
   return {
     fetchArticles: () => {
-      dispatch(actions.fetchArticles(props.params.topic));
+      dispatch(actions.fetchArticles());
     }
   };
 }

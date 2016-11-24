@@ -61,3 +61,10 @@ export const fetchTopicsError = function (error) {
     error: error
   }
 }
+
+export const setFilter = function (filter) {
+  return {
+    type: types.SET_FILTER,
+    filter: filter
+  }
+}
