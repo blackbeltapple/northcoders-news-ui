@@ -8,7 +8,7 @@ const User = React.createClass({
       <div>
         <h3 className='title is-3'>Hello Im {this.props.params.user} and Im a user</h3>
         <ProfileCard />
-        <ArticleList />
+        <ArticleList value={this.props.params.user}/>
       </div>
     ); }
 });
