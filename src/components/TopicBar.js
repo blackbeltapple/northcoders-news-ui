@@ -4,9 +4,7 @@ const App = React.createClass({
   render: function () {
     return (
       <div>
-        <NavBar />
-        <h3 className='title is-3'>All Articles</h3>
-        {this.props.children}
+        <h3>I'm the topic bar!</h3>
       </div>
     );
   }

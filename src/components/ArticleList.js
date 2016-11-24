@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
+import TopicBar from './TopicBar.js';
 
 import ArticleCard from './ArticleCard';
 
@@ -11,6 +12,7 @@ const ArticleList = React.createClass({
   render () {
     return (
       <div id='ArticleList'>
+        <TopicBar />
         {this.props.articles.map(function (article, i) {
           return <ArticleCard title={article.title} votes={article.votes} key={i}/>
         })}

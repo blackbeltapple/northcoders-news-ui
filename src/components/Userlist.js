@@ -9,6 +9,10 @@ const Userlist = React.createClass({
       <div>
         <h3 className='title is-3'>Hello Im userlist</h3>
         <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
       </div>
     );
   }
