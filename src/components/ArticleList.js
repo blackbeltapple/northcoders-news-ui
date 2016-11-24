@@ -24,14 +24,15 @@ const ArticleList = React.createClass({
 
 function mapStateToProps (state) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    filter: state.filter
   };
 }
 
 function mapDispatchToProps (dispatch, props) {
   return {
     fetchArticles: () => {
-      dispatch(actions.fetchArticles());
+      dispatch(actions.fetchArticles(props.filter));
     }
   };
 }
