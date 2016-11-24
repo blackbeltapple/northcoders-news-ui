@@ -1,9 +1,10 @@
 import * as types from './types';
 import request from 'superagent';
-
 import { ROOT } from '../../config';
 
-export function fetchArticles () {
+const actions = {};
+
+actions.fetchArticles = function () {
   return (dispatch) => {
     dispatch({ type: types.FETCH_ARTICLES_REQUEST });
     request
@@ -15,7 +16,7 @@ export function fetchArticles () {
   }
 }
 
-export function fetchTopics () {
+actions.fetchTopics = function () {
   return (dispatch) => {
     dispatch({ type: types.FETCH_TOPICS_REQUEST });
     request
@@ -27,44 +28,46 @@ export function fetchTopics () {
   }
 }
 
-export const fetchArticleSuccess = function (data) {
+actions.fetchArticleSuccess = function (data) {
   return {
     type: types.FETCH_ARTICLES_SUCCESS,
     data: data
   }
 }
-export const fetchArticleRequest = function () {
+actions.fetchArticleRequest = function () {
   return {
     type: types.FETCH_ARTICLES_SUCCESS
   }
 }
-export const fetchArticleError = function (error) {
+actions.fetchArticleError = function (error) {
   return {
     type: types.FETCH_ARTICLES_SUCCESS,
     error: error
   }
 }
-export const fetchTopicsSuccess = function (data) {
+actions.fetchTopicsSuccess = function (data) {
   return {
     type: types.FETCH_TOPICS_SUCCESS,
     data: data
   }
 }
-export const fetchTopicsRequest = function () {
+actions.fetchTopicsRequest = function () {
   return {
     type: types.FETCH_TOPICS_REQUEST
   }
 }
-export const fetchTopicsError = function (error) {
+actions.fetchTopicsError = function (error) {
   return {
     type: types.FETCH_TOPICS_ERROR,
     error: error
   }
 }
 
-export const setFilter = function (filter) {
+actions.setFilter = function (filter) {
   return {
     type: types.SET_FILTER,
     filter: filter
   }
 }
+
+export default actions;

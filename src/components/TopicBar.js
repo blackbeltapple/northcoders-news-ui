@@ -53,7 +53,7 @@ function mapDispatchToProps (dispatch, props) {
       dispatch(actions.fetchTopics(props));
     },
     setFilter: (filter) => {
-      dispatch(actions.setFilter(filter))
+      dispatch(actions.setFilter(props.filter));
     }
   };
 }
