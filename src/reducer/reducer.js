@@ -42,7 +42,6 @@ function reducer (prevState = initialState, action) {
       return;
 
     case types.SET_FILTER:
-      console.log('Reducer action.filter', action.filter);
       newState.filter = action.filter;
       return newState;
 
