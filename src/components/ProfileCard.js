@@ -15,8 +15,8 @@ const ProfileCard = React.createClass ({
           </div>
         </article>
       </div>
-    )
+    );
   }
-})
+});
 
 export default ProfileCard;

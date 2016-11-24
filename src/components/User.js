@@ -10,7 +10,7 @@ const User = React.createClass({
         <ProfileCard />
         <ArticleList />
       </div>
-    )}
+    ); }
 });
 
 export default User;

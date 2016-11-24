@@ -13,6 +13,7 @@ const ArticleList = React.createClass({
     return (
       <div id='ArticleList'>
         <TopicBar />
+        <p>filter is: {this.props.params.topic}</p>
         {this.props.articles.map(function (article, i) {
           return <ArticleCard title={article.title} votes={article.votes} key={i} />
         })}

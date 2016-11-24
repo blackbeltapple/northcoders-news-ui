@@ -4,8 +4,8 @@ const VoteBox = React.createClass({
   render: function () {
     return (
       <div>
-        <button onClick={console.log('hello!')}>+</button>
-        <button onClick={console.log('hello!')}>-</button>
+        <button>+</button>
+        <button>-</button>
         <p>Votes: 9</p>
       </div>
     );

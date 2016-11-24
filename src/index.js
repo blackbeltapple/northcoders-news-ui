@@ -13,7 +13,6 @@ import Article from './components/Article';
 import Userlist from './components/Userlist';
 import User from './components/User';
 
-
 const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
 ReactDOM.render(<Provider store={store}>
@@ -21,6 +20,7 @@ ReactDOM.render(<Provider store={store}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
                       <Route path='/articles' component={ArticleList}></Route>
+                      <Route path='/topics/:topic/articles' component={ArticleList}></Route>
                       <Route path='/articles/:article' component={Article}></Route>
                       <Route path='/userlist' component={Userlist}></Route>
                       <Route path='/userlist/:user' component={User}></Route>
