@@ -1,10 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const NavBar = React.createClass({
   render: function () {
     return (
       <div>
-        <h3 >Im a NavBar</h3>
+        <Link to='/Articles'>Articles</Link>
+        <Link to='/userlist'>Users</Link>
       </div>
     );
   }
