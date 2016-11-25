@@ -27,6 +27,7 @@ const TopicBar = React.createClass({
   render: function () {
     return (
       <div>
+        <Link to={`/articles`}><button value={''} key={100} onClick={this.changeTopic}>All Articles</button></Link>
         {this.renderTopics()}
         <ArticleList />
       </div>

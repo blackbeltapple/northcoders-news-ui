@@ -1,19 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../actions/actions';
+import {Link} from 'react-router'
 
-import TopicBar from './TopicBar.js';
 import ArticleCard from './ArticleCard';
 
 const ArticleList = React.createClass({
   componentWillMount () {
     this.props.fetchArticles();
   },
+  filteredArticles () {
+    if(this.props.filter === '') {
+      return this.props.articles;
+    }
+    let filteredArticles = this.props.articles.filter((article) => {
+      return this.props.filter === article.belongs_to;
+    });
+    return filteredArticles;
+  },
   render () {
+    let filtered = this.filteredArticles()
     // this.props.params.topic
     return (
       <div id='ArticleList'>
-        {this.props.articles.map((article, i) => {
+        {filtered.map((article, i) => {
           return <ArticleCard title={article.title} votes={article.votes} id={article._id} key={i} />;
         })}
       </div>

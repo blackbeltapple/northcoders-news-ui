@@ -11,12 +11,12 @@ const ArticleCard = function (props) {
         </div>
         <div className='media-content'>
           <div className='content'>
-            <h3 className='title is-3'><Link to={`/articles/${props.id}`}>{props.title}</Link></h3>
+            <Link to={`/articles/${props.id}`}>{props.title}</Link>
           </div>
         </div>
       </article>
     </div>
-  )
-}
+  );
+};
 
 export default ArticleCard;
