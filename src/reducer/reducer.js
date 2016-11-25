@@ -47,19 +47,28 @@ function reducer (prevState = initialState, action) {
       newState.filter = toLower;
       return newState;
 
-      case types.FETCH_COMMENTS_SUCCESS:
-        newState.loading = false;
-        newState.comments = action.data.comments;
-        return newState;
+    case types.FETCH_COMMENTS_SUCCESS:
+      newState.loading = false;
+      newState.comments = action.data.comments;
+      return newState;
 
-      case types.FETCH_COMMENTS_REQUEST:
-        newState.loading = true;
-        return newState;
+    case types.FETCH_COMMENTS_REQUEST:
+      newState.loading = true;
+      return newState;
 
-      case types.FETCH_COMMENTS_ERROR:
-        newState.loading = false;
-        newState.error = action.error;
-        return;
+    case types.FETCH_COMMENTS_ERROR:
+      newState.loading = false;
+      newState.error = action.error;
+      return;
+
+    case types.ADD_COMMENT:
+      let newObj = {};
+      newObj.body = action.body;
+      newObj.created_by = action.created_by;
+      newObj.votes = 0;
+      newObj.belongs_to = action.belongs_to;
+      newState.comments.push(newObj);
+      return newState;
 
     default:
       return prevState;

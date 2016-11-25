@@ -100,4 +100,13 @@ actions.setFilter = function (filter) {
   };
 };
 
+actions.addComment = function (created_by, body, belongs_to) {
+  return {
+    type: types.ADD_COMMENT,
+    created_by: created_by,
+    body: body,
+    belongs_to: belongs_to
+  };
+};
+
 export default actions;
