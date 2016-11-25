@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import CommentCard from './CommentCard';
 import actions from '../actions/actions';
 import VoteBox from './VoteBox';
+import CommentForm from './CommentForm';
+
 
 const CommentList = React.createClass({
   componentWillMount: function () {
@@ -21,6 +23,7 @@ const CommentList = React.createClass({
   render: function () {
     return (
       <div>
+        <CommentForm articleID={this.props.id} />
         {this.renderCommments()}
       </div>
     );

@@ -67,6 +67,7 @@ function reducer (prevState = initialState, action) {
       newObj.created_by = action.created_by;
       newObj.votes = 0;
       newObj.belongs_to = action.belongs_to;
+      console.log('newObj', newObj)
       // IS THIS THE RIGHT THING TO DO ?
       let newComments = newState.comments.slice();
       newComments.push(newObj);
