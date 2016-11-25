@@ -5,8 +5,8 @@ const VoteBox = React.createClass({
     return (
       <div>
         <button>+</button>
+        <p>{this.props.votes}</p>
         <button>-</button>
-        <p>Votes: 9</p>
       </div>
     );
   }

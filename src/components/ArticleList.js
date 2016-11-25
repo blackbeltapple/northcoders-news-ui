@@ -10,7 +10,7 @@ const ArticleList = React.createClass({
     this.props.fetchArticles();
   },
   filteredArticles () {
-    if(this.props.filter === '') {
+    if (this.props.filter === '') {
       return this.props.articles;
     }
     let filteredArticles = this.props.articles.filter((article) => {
@@ -19,8 +19,7 @@ const ArticleList = React.createClass({
     return filteredArticles;
   },
   render () {
-    let filtered = this.filteredArticles()
-    // this.props.params.topic
+    let filtered = this.filteredArticles();
     return (
       <div id='ArticleList'>
         {filtered.map((article, i) => {

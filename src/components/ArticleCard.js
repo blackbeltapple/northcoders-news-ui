@@ -7,7 +7,7 @@ const ArticleCard = function (props) {
     <div className='box'>
       <article className='media'>
         <div className='media-left'>
-          <p><VoteBox /></p>
+          <p><VoteBox votes={props.votes} /></p>
         </div>
         <div className='media-content'>
           <div className='content'>

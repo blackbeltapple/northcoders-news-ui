@@ -13,10 +13,4 @@ const App = React.createClass({
   }
 });
 
-function mapStateToProps (state) {
-  return {
-    filter: state.filter
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
