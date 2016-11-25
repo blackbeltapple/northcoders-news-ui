@@ -6,18 +6,13 @@ const CommentCard = React.createClass ({
   render () {
     return (
       <div className='box'>
-        <article className='media'>
-          <div className='media-left'>
-            
-          </div>
-          <div className='media-content'>
-            <div className='content'>
-              <h3 className='title is-3'>Comment Card</h3>
-            </div>
-          </div>
-        </article>
+        <VoteBox />
+        <p className='title is-3'>{this.props.body}</p>
+        <p className='title is-5'>{this.props.votes}</p>
+        <p className='title is-5'>{this.props.created}</p>
+        <p className='title is-5'>{this.props.createdAt}</p>
       </div>
-    )
+    );
   }
 })
 

@@ -9,12 +9,19 @@ const CommentList = React.createClass({
   componentWillMount: function () {
     this.props.fetchComments(this.props.id);
   },
+  renderCommments: function () {
+    if (this.props.loading === true) {
+      return 'Hello';
+    }
+    let find = this.props.comments.map((comment) => {
+      return <CommentCard body={comment.body} created={comment.created_by} votes={comment.votes} createdAt={comment.created_at}/>;
+    });
+    return find;
+  },
   render: function () {
     return (
       <div>
-        {this.props.comments.map((comment) => {
-          return <CommentCard />;
-        })}
+        {this.renderCommments()}
       </div>
     );
   }
