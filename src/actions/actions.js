@@ -41,6 +41,26 @@ actions.fetchComments = function (id) {
   };
 };
 
+actions.addComment = function (body, id) {
+
+  let newComment = {
+    type: types.ADD_COMMENT_REQUEST,
+    body: body,
+    id: id
+  };
+  return newComment;
+  // return (dispatch) => {
+  //   dispatch({ type: types.ADD_COMMENT });
+  //   request
+  //     .post(`${ROOT}/articles/${articleId}/comments`)
+  //     .end((err, res) => {
+  //       if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
+  //       else dispatch({ type: types.FETCH_COMMENTS_SUCCESS, data: res.body });
+  //     });
+  // };
+
+};
+
 actions.fetchArticleSuccess = function (data) {
   return {
     type: types.FETCH_ARTICLES_SUCCESS,
@@ -100,13 +120,6 @@ actions.setFilter = function (filter) {
   };
 };
 
-actions.addComment = function (created_by, body, belongs_to) {
-  return {
-    type: types.ADD_COMMENT,
-    created_by: created_by,
-    body: body,
-    belongs_to: belongs_to
-  };
-};
+
 
 export default actions;

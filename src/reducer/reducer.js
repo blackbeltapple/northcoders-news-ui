@@ -61,14 +61,10 @@ function reducer (prevState = initialState, action) {
       newState.error = action.error;
       return;
 
-    case types.ADD_COMMENT:
+    case types.ADD_COMMENT_REQUEST:
       let newObj = {};
       newObj.body = action.body;
-      newObj.created_by = action.created_by;
-      newObj.votes = 0;
-      newObj.belongs_to = action.belongs_to;
-      console.log('newObj', newObj)
-      // IS THIS THE RIGHT THING TO DO ?
+      newObj.id = action.id;
       let newComments = newState.comments.slice();
       newComments.push(newObj);
       newState.comments = newComments;

@@ -27,13 +27,13 @@ describe('reducer', function () {
   it('adds a comment to the comments array on the state', function () {
     var state = reducer(initialState);
     var result = [
-      { body: 'Hello', created_by: 'Tague', votes: 0, belongs_to: 'f' },
-      { body: 'Coolio', created_by: 'Amanda', votes: 0, belongs_to: 'f' }
+      { body: 'Tague',  id: 'Hello' },
+      { body: 'Amanda',  id: 'Coolio' }
     ]
     expect(state.comments).to.eql([]);
-    var myAction = actions.addComment('Tague', 'Hello', 'f');
+    var myAction = actions.addComment('Tague', 'Hello');
     var newState = reducer(initialState, myAction);
-    var myAction2 = actions.addComment('Amanda', 'Coolio', 'f');
+    var myAction2 = actions.addComment('Amanda', 'Coolio');
     newState = reducer(newState, myAction2);
     expect(newState.comments).to.eql(result);
   });

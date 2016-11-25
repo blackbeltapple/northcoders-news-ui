@@ -25,7 +25,7 @@ const CommentForm = React.createClass ({
   handleSubmit: function (event) {
     event.preventDefault();
 
-    this.props.addComment(this.state.name, this.state.body, 99);
+    this.props.addComment(this.state.body, this.props.articleID);
   },
 
   render: function () {
@@ -62,8 +62,8 @@ function mapStateToProps (state) {
 }
 function mapDispatchToProps (dispatch) {
   return {
-    addComment: function (by, body, article) {
-      dispatch(actions.addComment(by, body, article));
+    addComment: function (body, article) {
+      dispatch(actions.addComment(body, article));
     }
   };
 }
