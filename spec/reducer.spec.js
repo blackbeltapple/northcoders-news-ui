@@ -24,19 +24,17 @@ describe('reducer', function () {
   });
 });
 describe('reducer', function () {
-  it('changes the filter property on the state', function () {
+  it('adds a comment to the comments array on the state', function () {
     var state = reducer(initialState);
+    var result = [
+      { body: 'Hello', created_by: 'Tague', votes: 0, belongs_to: 'f' },
+      { body: 'Coolio', created_by: 'Amanda', votes: 0, belongs_to: 'f' }
+    ]
     expect(state.comments).to.eql([]);
     var myAction = actions.addComment('Tague', 'Hello', 'f');
     var newState = reducer(initialState, myAction);
     var myAction2 = actions.addComment('Amanda', 'Coolio', 'f');
-    newState = reducer(initialState, myAction2);
-    console.log(newState.comments);
-    expect(newState.filter).to.equal([ { body: 'Hello', created_by: 'Tague', votes: 0, belongs_to: 'f' },
-  { body: 'Coolio',
-    created_by: 'Amanda',
-    votes: 0,
-    belongs_to: 'f' } ]
-);
+    newState = reducer(newState, myAction2);
+    expect(newState.comments).to.eql(result);
   });
 });
