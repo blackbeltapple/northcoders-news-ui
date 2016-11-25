@@ -24,7 +24,7 @@ const CommentForm = React.createClass ({
 
   handleSubmit: function (event) {
     event.preventDefault();
-
+    console.log('blah', this.state.body, this.props.articleID)
     this.props.addComment(this.state.body, this.props.articleID);
   },
 

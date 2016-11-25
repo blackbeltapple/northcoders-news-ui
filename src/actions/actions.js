@@ -43,21 +43,22 @@ actions.fetchComments = function (id) {
 
 actions.addComment = function (body, id) {
 
-  let newComment = {
-    type: types.ADD_COMMENT_REQUEST,
-    body: body,
-    id: id
-  };
-  return newComment;
-  // return (dispatch) => {
-  //   dispatch({ type: types.ADD_COMMENT });
-  //   request
-  //     .post(`${ROOT}/articles/${articleId}/comments`)
-  //     .end((err, res) => {
-  //       if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
-  //       else dispatch({ type: types.FETCH_COMMENTS_SUCCESS, data: res.body });
-  //     });
+  // let newComment = {
+  //   type: types.ADD_COMMENT_REQUEST,
+  //   body: body,
+  //   id: id
   // };
+  let articleId = id;
+  return (dispatch) => {
+    dispatch({ type: types.ADD_COMMENT_REQUEST });
+    request
+      .post(`${ROOT}/articles/${articleId}/comments`)
+      .send({"comment": body })
+      .end((err, res) => {
+        if (err) dispatch({ type: types.ADD_COMMENT_ERROR, err });
+        else dispatch({ type: types.ADD_COMMENT_SUCCESS, data: res.body });
+      });
+  };
 
 };
 
