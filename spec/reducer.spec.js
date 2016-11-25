@@ -19,6 +19,6 @@ describe('reducer', function () {
     expect(state.filter).to.equal('');
     var myAction = actions.setFilter('Football');
     var newState = reducer(initialState, myAction);
-    expect(newState.filter).to.equal('Football');
+    expect(newState.filter).to.equal('football');
   });
 });

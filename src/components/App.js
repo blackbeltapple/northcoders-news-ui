@@ -7,7 +7,6 @@ const App = React.createClass({
     return (
       <div>
         <NavBar />
-        {console.log('In app filter ' + this.props.filter)}
         {this.props.children}
       </div>
     );

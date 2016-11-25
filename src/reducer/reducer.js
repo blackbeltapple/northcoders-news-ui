@@ -43,7 +43,8 @@ function reducer (prevState = initialState, action) {
       return;
 
     case types.SET_FILTER:
-      newState.filter = action.filter;
+      let toLower = action.filter.toLowerCase();
+      newState.filter = toLower;
       return newState;
 
     default:
