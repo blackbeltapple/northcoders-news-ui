@@ -43,11 +43,11 @@ actions.fetchComments = function (id) {
 
 actions.addComment = function (body, id) {
 
-  // let newComment = {
-  //   type: types.ADD_COMMENT_REQUEST,
-  //   body: body,
-  //   id: id
-  // };
+  let newComment = {
+    type: types.ADD_COMMENT_REQUEST,
+    body: body,
+    id: id
+  };
   let articleId = id;
   return (dispatch) => {
     dispatch({ type: types.ADD_COMMENT_REQUEST });
