@@ -5,7 +5,7 @@ const NavBar = React.createClass({
   render: function () {
     return (
       <div>
-        <Link to='/articles'>Articles</Link>
+        <Link to='/'>Articles</Link>
         <Link to='/userlist'>Users</Link>
       </div>
     );

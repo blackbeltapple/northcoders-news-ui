@@ -1,15 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router';
 import { connect } from 'react-redux';
-import * as actions from '../actions/actions';
+import actions from '../actions/actions';
 import ArticleList from './ArticleList';
 
 const TopicBar = React.createClass({
-  getInitialState: function () {
-    return {
-      filter: ''
-    };
-  },
   componentWillMount: function () {
     this.props.fetchTopics();
   },
@@ -21,16 +16,15 @@ const TopicBar = React.createClass({
   renderTopics: function () {
     let that = this;
     return (
-        this.props.topics.map(function (topic) {
+        this.props.topics.map((topic) => {
           return (
-            <Link to={`/topics/${topic.title}/articles`}><button value={topic.title} onClick={that.changeTopic}>{topic.title}</button></Link>
+            <Link to={`/topics/${topic.title}/articles`}><button value={topic.title} onClick={this.changeTopic}>{topic.title}</button></Link>
           );
         })
     );
   },
 
   render: function () {
-    console.log('this.props.filter is ' + this.props.filter);
     return (
       <div>
         {this.renderTopics()}
@@ -52,8 +46,8 @@ function mapDispatchToProps (dispatch, props) {
     fetchTopics: () => {
       dispatch(actions.fetchTopics(props));
     },
-    setFilter: (filter) => {
-      dispatch(actions.setFilter(props.filter));
+    setFilter: (value) => {
+      dispatch(actions.setFilter(value));
     }
   };
 }

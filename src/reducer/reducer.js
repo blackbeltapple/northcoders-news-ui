@@ -10,6 +10,7 @@ const initialState = {
 };
 
 function reducer (prevState = initialState, action) {
+  if (!action) return prevState;
   const newState = Object.assign({}, prevState);
 
   switch (action.type) {

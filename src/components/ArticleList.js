@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/actions';
+import actions from '../actions/actions';
 
 import TopicBar from './TopicBar.js';
 import ArticleCard from './ArticleCard';
@@ -13,7 +13,6 @@ const ArticleList = React.createClass({
     // this.props.params.topic
     return (
       <div id='ArticleList'>
-        {console.log('this.props.filter in ArticleList', this.props.filter)}
         {this.props.articles.map(function (article, i) {
           return <ArticleCard title={article.title} votes={article.votes} id={article._id} key={i} />;
         })}
@@ -32,7 +31,7 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch, props) {
   return {
     fetchArticles: () => {
-      dispatch(actions.fetchArticles(props.filter));
+      dispatch(actions.fetchArticles(props.articles));
     }
   };
 }
