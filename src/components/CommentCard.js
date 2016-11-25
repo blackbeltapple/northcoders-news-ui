@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import VoteBox from './VoteBox';
 
 const CommentCard = React.createClass ({
   render () {
@@ -6,7 +8,7 @@ const CommentCard = React.createClass ({
       <div className='box'>
         <article className='media'>
           <div className='media-left'>
-            <p>HERE IS ANOTHER</p>
+            
           </div>
           <div className='media-content'>
             <div className='content'>
@@ -19,4 +21,10 @@ const CommentCard = React.createClass ({
   }
 })
 
-export default CommentCard;
+function mapStateToProps (state) {
+  return {
+    comments: state.comments
+  };
+}
+
+export default connect(mapStateToProps)(CommentCard);

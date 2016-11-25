@@ -2,7 +2,7 @@ import * as types from '../actions/types';
 
 const initialState = {
   articles: [],
-  selectedTopic: null,
+  comments: [],
   loading: false,
   error: null,
   topics: [],
@@ -46,6 +46,20 @@ function reducer (prevState = initialState, action) {
       let toLower = action.filter.toLowerCase();
       newState.filter = toLower;
       return newState;
+
+      case types.FETCH_COMMENTS_SUCCESS:
+        newState.loading = false;
+        newState.comments = action.data.comments;
+        return newState;
+
+      case types.FETCH_COMMENTS_REQUEST:
+        newState.loading = true;
+        return newState;
+
+      case types.FETCH_COMMENTS_ERROR:
+        newState.loading = false;
+        newState.error = action.error;
+        return;
 
     default:
       return prevState;
