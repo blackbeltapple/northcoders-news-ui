@@ -15,8 +15,8 @@ const CommentList = React.createClass({
     if (this.props.loading === true) {
       return 'Hello';
     }
-    let find = this.props.comments.map((comment) => {
-      return <CommentCard body={comment.body} created={comment.created_by} votes={comment.votes} createdAt={comment.created_at}/>;
+    let find = this.props.comments.map((comment, i) => {
+      return <CommentCard body={comment.body} created={comment.created_by} votes={comment.votes} createdAt={comment.created_at} key={i} />;
     });
     return find;
   },

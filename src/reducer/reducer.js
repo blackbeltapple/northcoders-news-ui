@@ -6,7 +6,8 @@ const initialState = {
   loading: false,
   error: null,
   topics: [],
-  filter: ''
+  filter: '',
+  users: []
 };
 
 function reducer (prevState = initialState, action) {
@@ -46,6 +47,20 @@ function reducer (prevState = initialState, action) {
       let toLower = action.filter.toLowerCase();
       newState.filter = toLower;
       return newState;
+
+    case types.FETCH_USERS_SUCCESS:
+      newState.loading = false;
+      newState.users = action.data.users;
+      return newState;
+
+    case types.FETCH_USERS_REQUEST:
+      newState.loading = true;
+      return newState;
+
+    case types.FETCH_USERS_ERROR:
+      newState.loading = false;
+      newState.error = action.error;
+      return;
 
     case types.FETCH_COMMENTS_SUCCESS:
       newState.loading = false;

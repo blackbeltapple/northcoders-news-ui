@@ -28,6 +28,19 @@ actions.fetchTopics = function () {
   };
 };
 
+actions.fetchUsers = function () {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_USERS_REQUEST });
+    request
+      .get(`${ROOT}/users`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_USERS_ERROR, err });
+        else dispatch({ type: types.FETCH_USERS_SUCCESS, data: res.body });
+      });
+  };
+};
+
+
 actions.fetchComments = function (id) {
   let articleId = id;
   return (dispatch) => {
@@ -43,11 +56,11 @@ actions.fetchComments = function (id) {
 
 actions.addComment = function (body, id) {
 
-  let newComment = {
-    type: types.ADD_COMMENT_REQUEST,
-    body: body,
-    id: id
-  };
+  // let newComment = {
+  //   type: types.ADD_COMMENT_REQUEST,
+  //   body: body,
+  //   id: id
+  // };
   let articleId = id;
   return (dispatch) => {
     dispatch({ type: types.ADD_COMMENT_REQUEST });
@@ -93,6 +106,25 @@ actions.fetchTopicsRequest = function () {
 actions.fetchTopicsError = function (error) {
   return {
     type: types.FETCH_TOPICS_ERROR,
+    error: error
+  };
+};
+
+
+actions.fetchUsersSuccess = function (data) {
+  return {
+    type: types.FETCH_USERS_SUCCESS,
+    data: data
+  };
+};
+actions.fetchUsersRequest = function () {
+  return {
+    type: types.FETCH_USERS_REQUEST
+  };
+};
+actions.fetchUsersError = function (error) {
+  return {
+    type: types.FETCH_USERS_ERROR,
     error: error
   };
 };
