@@ -19,12 +19,12 @@ ReactDOM.render(<Provider store={store}>
   <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={TopicBar} />
-      <Route path='/articles' component={TopicBar}></Route>
-      <Route path='/topics/:topic/articles' component={TopicBar}></Route>
-      <Route path='/articles/:article' component={Article}></Route>
-      <Route path='/userlist' component={UserList}></Route>
-      <Route path='/userlist/:user' component={User}></Route>
-      <Route path='/users/:username' component={User}></Route>
+      <Route path='/articles' component={TopicBar} />
+      <Route path='/topics/:topic/articles' component={TopicBar} />
+      <Route path='/articles/:article' component={Article} />
+      <Route path='/userlist' component={UserList} />
+      <Route path='/userlist/:user' component={User} />
+      <Route path='/users/:username' component={User} />
     </Route>
   </Router>
 </Provider>, document.getElementById('app'));

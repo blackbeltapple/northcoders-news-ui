@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import actions from '../actions/actions';
 
-const CommentForm = React.createClass ({
+const CommentForm = React.createClass({
   getInitialState: function () {
     return {
       name: '',
@@ -10,21 +10,20 @@ const CommentForm = React.createClass ({
     };
   },
 
-  handleNameChange:  function (event) {
+  handleNameChange: function (event) {
     this.setState({
       name: event.target.value
-    })
+    });
   },
 
   handleBodyChange: function (event) {
     this.setState({
       body: event.target.value
-    })
+    });
   },
 
   handleSubmit: function (event) {
     event.preventDefault();
-    console.log('blah', this.state.body, this.props.articleID)
     this.props.addComment(this.state.body, this.props.articleID);
   },
 
@@ -33,22 +32,19 @@ const CommentForm = React.createClass ({
       <div className='box' >
         <form onSubmit={this.handleSubmit}>
           <label className="label">Name</label>
-        <p className="control">
-          <input className="input"
-            type="text" placeholder=""
-            onChange={this.handleNameChange}
-          />
-        </p>
-        <label className="label">Message</label>
-        <p className="control">
-          <textarea
-            className="textarea"
-            onChange={this.handleBodyChange}
-
-            >
-          </textarea>
-        </p>
-          <button  className="button is-primary" >Submit</button>
+          <p className="control">
+            <input className="input"
+              type="text" placeholder=""
+              onChange={this.handleNameChange}
+            />
+          </p>
+          <label className="label">Message</label>
+          <p className="control">
+            <textarea
+              className="textarea"
+              onChange={this.handleBodyChange} />
+          </p>
+          <button className="button is-primary" >Submit</button>
         </form>
       </div>
     );

@@ -65,13 +65,19 @@ actions.fetchUserProfile = function (username) {
   };
 };
 
-actions.addComment = function (body, id) {
+actions.fetchUserRepos = function (username) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_USERREPOS_REQUEST });
+    request
+      .get(`${ROOT}/users/${username}/repos`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_USERREPOS_ERROR, err });
+        else dispatch({ type: types.FETCH_USERREPOS_SUCCESS, data: res.body });
+      });
+  };
+};
 
-  // let newComment = {
-  //   type: types.ADD_COMMENT_REQUEST,
-  //   body: body,
-  //   id: id
-  // };
+actions.addComment = function (body, id) {
   let articleId = id;
   return (dispatch) => {
     dispatch({ type: types.ADD_COMMENT_REQUEST });
@@ -119,7 +125,6 @@ actions.fetchTopicsError = function (error) {
     error: error
   };
 };
-
 
 actions.fetchUsersSuccess = function (data) {
   return {
@@ -175,13 +180,30 @@ actions.fetchUserProfileError = function (error) {
   };
 };
 
+// // FETCH_USERREPOS_REQUEST
+// actions.fetchUserReposSuccess = function (data) {
+//   return {
+//     type: types.FETCH_USERREPOS_SUCCESS,
+//     data: data
+//   };
+// };
+// actions.fetchUserReposRequest = function () {
+//   return {
+//     type: types.FETCH_USERREPOS_REQUEST
+//   };
+// };
+// actions.fetchUserReposError = function (error) {
+//   return {
+//     type: types.FETCH_USERREPOS_ERROR,
+//     error: error
+//   };
+// };
+
 actions.setFilter = function (filter) {
   return {
     type: types.SET_FILTER,
     filter: filter
   };
 };
-
-
 
 export default actions;

@@ -4,10 +4,10 @@ import React from 'react';
 import actions from '../actions/actions';
 import {connect} from 'react-redux';
 
-
 const User = React.createClass({
   componentWillMount: function () {
     this.props.fetchUserProfile(this.props.params.username);
+    // this.props.fetchUserRepos(this.props.params.username);
   },
 
   render: function () {
@@ -16,9 +16,10 @@ const User = React.createClass({
     return (
       <div>
         <p >Params: {this.props.params.username}</p>
-          <p >Username: {this.props.users[0].username}</p>
-          <p >Name: {this.props.users[0].name}</p>
-          <p >Avatar: {this.props.users[0].avatar_url}</p>
+        <p >Username: {this.props.users[0].username}</p>
+        <p >Name: {this.props.users[0].name}</p>
+        <a href={this.props.users[0].avatar_url} />
+        <img src={this.props.users[0].avatar_url} alt="some text" />
       </div>
     );
   }
@@ -33,10 +34,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch, props) {
   return {
-    fetchUserProfile: (username) => {
-      dispatch(actions.fetchUserProfile(username));
-    }
+    fetchUserProfile: (username) => { dispatch(actions.fetchUserProfile(username)); }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(User)
+export default connect(mapStateToProps, mapDispatchToProps)(User);

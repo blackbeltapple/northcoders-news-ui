@@ -15,7 +15,7 @@ const UserList = React.createClass({
       <div id='UserList' className='box'>
         User List
         {
-          this.props.users.map( (user, i) => {
+          this.props.users.map((user, i) => {
             // console.log(user.name);
             return <UserCard name={user.name} username={user.username} url={user.avatar_url} />;
           })
@@ -27,7 +27,7 @@ const UserList = React.createClass({
 
 function mapStateToProps (state) {
   return {
-      users: state.users
+    users: state.users
   };
 }
 

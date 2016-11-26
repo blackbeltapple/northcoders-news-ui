@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const UserCard = React.createClass ({
+const UserCard = React.createClass({
   render () {
     return (
       <div className='box'>
@@ -9,8 +9,8 @@ const UserCard = React.createClass ({
         <h3 className='title is-3' >{this.props.username}</h3>
 
       </div>
-    )
+    );
   }
-})
+});
 
 export default UserCard;

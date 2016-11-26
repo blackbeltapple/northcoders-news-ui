@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../actions/actions';
-import {Link} from 'react-router'
 
 import ArticleCard from './ArticleCard';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileCard = React.createClass ({
+const ProfileCard = React.createClass({
   render () {
     return (
       <div className='box'>

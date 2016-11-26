@@ -77,7 +77,6 @@ function reducer (prevState = initialState, action) {
       return;
 
     case types.FETCH_USERPROFILE_SUCCESS:
-      console.log('REDUCER: user profile retrieved', action.data.users)
       newState.loading = false;
       newState.users = action.data.users;
       return newState;
@@ -90,6 +89,20 @@ function reducer (prevState = initialState, action) {
       newState.loading = false;
       newState.error = action.error;
       return;
+
+    // case types.FETCH_USERREPOS_SUCCESS:
+    //   newState.loading = false;
+    //   newState.repos = action.data.repos;
+    //   return newState;
+    //
+    // case types.FETCH_USERREPOS_REQUEST:
+    //   newState.loading = true;
+    //   return newState;
+    //
+    // case types.FETCH_USERREPOS_ERROR:
+    //   newState.loading = false;
+    //   newState.error = action.error;
+    //   return;
 
     case types.ADD_COMMENT_REQUEST:
       let newObj = {};

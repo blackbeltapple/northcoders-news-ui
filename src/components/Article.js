@@ -2,7 +2,6 @@ import React from 'react';
 import CommentList from './CommentList';
 import {connect} from 'react-redux';
 import actions from '../actions/actions';
-import VoteBox from './VoteBox';
 
 const Article = React.createClass({
   componentWillMount: function () {
@@ -26,7 +25,7 @@ const Article = React.createClass({
         <p className='title is-4'>{article.body}</p>
         <p className='title is-5'>Created by: {article.created_by}</p>
         <p className='title is-5'>Comments: {article.comments}</p>
-        <CommentList id={this.props.params.article}/>
+        <CommentList id={this.props.params.article} />
       </div>
     );
   }
