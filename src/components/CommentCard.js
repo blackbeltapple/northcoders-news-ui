@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import VoteBox from './VoteBox';
 
 const CommentCard = React.createClass({
+  // type='comment' commentId={this.props.commentId}
   render () {
     return (
       <div className='box'>
-        <VoteBox votes={this.props.votes} />
+        <VoteBox votes={this.props.votes} type='comment' commentId={this.props.commentId} />
         <p className='title is-3'>{this.props.body}</p>
         <p className='title is-5'>{this.props.created}</p>
         <p className='title is-5'>{this.props.createdAt}</p>

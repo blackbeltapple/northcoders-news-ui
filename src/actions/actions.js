@@ -3,6 +3,19 @@ import request from 'superagent';
 import { ROOT } from '../../config';
 
 const actions = {};
+actions.editVote = function (type, id) {
+  // e.g: http://northcoders-news-api.herokuapp.com/api/articles/:article_id?vote=up
+  console.log(`${ROOT}/articles/${id}?vote=down`)
+  return (dispatch) => {
+    dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
+    request
+      .put(`${ROOT}/articles/${id}?vote=down`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.PUTVOTE_ARTICLE_ERROR, err });
+        else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body });
+      });
+  };
+};
 
 actions.fetchArticles = function () {
   return (dispatch) => {
@@ -41,6 +54,7 @@ actions.fetchUsers = function () {
 };
 
 actions.fetchComments = function (id) {
+  //refactor
   let articleId = id;
   return (dispatch) => {
     dispatch({ type: types.FETCH_COMMENTS_REQUEST });
@@ -176,6 +190,24 @@ actions.fetchUserProfileRequest = function () {
 actions.fetchUserProfileError = function (error) {
   return {
     type: types.FETCH_USERPROFILE_ERROR,
+    error: error
+  };
+};
+
+actions.editVoteSuccess = function (data) {
+  return {
+    type: types.PUTVOTE_ARTICLE_SUCCESS,
+    data: data
+  };
+};
+actions.editVoteRequest = function () {
+  return {
+    type: types.PUTVOTE_ARTICLE_REQUEST
+  };
+};
+actions.editVoteError = function (error) {
+  return {
+    type: types.PUTVOTE_ARTICLE_ERROR,
     error: error
   };
 };

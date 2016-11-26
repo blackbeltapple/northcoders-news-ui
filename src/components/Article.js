@@ -21,10 +21,10 @@ const Article = React.createClass({
 
     return (
       <div className='box'>
-        <h1 className='title is-2'>{article.title}</h1>
-        <p className='title is-4'>{article.body}</p>
-        <p className='title is-5'>Created by: {article.created_by}</p>
-        <p className='title is-5'>Comments: {article.comments}</p>
+        <h1 className='title is-3'>{article.title}</h1>
+        <p className='title is-5'>{article.body}</p>
+        <p className='title is-6'>Created by: {article.created_by}</p>
+        <p className='title is-6'>Comments: {article.comments}</p>
         <CommentList id={this.props.params.article} />
       </div>
     );
