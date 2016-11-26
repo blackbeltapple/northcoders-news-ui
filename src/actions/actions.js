@@ -40,7 +40,6 @@ actions.fetchUsers = function () {
   };
 };
 
-
 actions.fetchComments = function (id) {
   let articleId = id;
   return (dispatch) => {
@@ -48,8 +47,20 @@ actions.fetchComments = function (id) {
     request
       .get(`${ROOT}/articles/${articleId}/comments`)
       .end((err, res) => {
-        if (err) dispatch({ type: types.FETCH_TOPICS_ERROR, err });
+        if (err) dispatch({ type: types.FETCH_COMMENTS_ERROR, err });
         else dispatch({ type: types.FETCH_COMMENTS_SUCCESS, data: res.body });
+      });
+  };
+};
+
+actions.fetchUserProfile = function (username) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_USERPROFILE_REQUEST });
+    request
+      .get(`${ROOT}/users/${username}`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_USERPROFILE_ERROR, err });
+        else dispatch({ type: types.FETCH_USERPROFILE_SUCCESS, data: res.body });
       });
   };
 };
@@ -66,13 +77,12 @@ actions.addComment = function (body, id) {
     dispatch({ type: types.ADD_COMMENT_REQUEST });
     request
       .post(`${ROOT}/articles/${articleId}/comments`)
-      .send({"comment": body })
+      .send({ "comment": body })
       .end((err, res) => {
         if (err) dispatch({ type: types.ADD_COMMENT_ERROR, err });
         else dispatch({ type: types.ADD_COMMENT_SUCCESS, data: res.body });
       });
   };
-
 };
 
 actions.fetchArticleSuccess = function (data) {
@@ -146,6 +156,25 @@ actions.fetchCommentsError = function (error) {
     error: error
   };
 };
+// FETCH_USERPROFILE_REQUEST
+actions.fetchUserProfileSuccess = function (data) {
+  return {
+    type: types.FETCH_USERPROFILE_SUCCESS,
+    data: data
+  };
+};
+actions.fetchUserProfileRequest = function () {
+  return {
+    type: types.FETCH_USERPROFILE_REQUEST
+  };
+};
+actions.fetchUserProfileError = function (error) {
+  return {
+    type: types.FETCH_USERPROFILE_ERROR,
+    error: error
+  };
+};
+
 actions.setFilter = function (filter) {
   return {
     type: types.SET_FILTER,

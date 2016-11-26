@@ -25,7 +25,6 @@ ReactDOM.render(<Provider store={store}>
       <Route path='/userlist' component={UserList}></Route>
       <Route path='/userlist/:user' component={User}></Route>
       <Route path='/users/:username' component={User}></Route>
-
     </Route>
   </Router>
 </Provider>, document.getElementById('app'));
