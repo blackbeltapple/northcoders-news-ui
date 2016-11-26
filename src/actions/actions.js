@@ -5,7 +5,7 @@ import { ROOT } from '../../config';
 const actions = {};
 actions.editVote = function (type, id) {
   // e.g: http://northcoders-news-api.herokuapp.com/api/articles/:article_id?vote=up
-  console.log(`${ROOT}/articles/${id}?vote=down`)
+  console.log(`${ROOT}/articles/${id}?vote=up`)
   return (dispatch) => {
     dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
     request

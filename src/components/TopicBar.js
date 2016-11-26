@@ -18,7 +18,7 @@ const TopicBar = React.createClass({
     return (
         this.props.topics.map((topic, i) => {
           return (
-            <Link to={`/topics/${topic.title}/articles`} key={i} ><button value={topic.title} onClick={this.changeTopic}>{topic.title}</button></Link>
+            <Link to={`/topics/${topic.title.toLowerCase()}/articles`} key={i} ><button value={topic.title} onClick={this.changeTopic}>{topic.title}</button></Link>
           );
         })
     );

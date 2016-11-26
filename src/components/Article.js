@@ -12,7 +12,7 @@ const Article = React.createClass({
       return 'Helloooooooo';
     }
     let find = this.props.articles.filter((article) => {
-      return article._id === this.props.params.article;
+      return article._id === this.props.params.article.toLowerCase();
     });
     return find;
   },
@@ -25,7 +25,7 @@ const Article = React.createClass({
         <p className='title is-5'>{article.body}</p>
         <p className='title is-6'>Created by: {article.created_by}</p>
         <p className='title is-6'>Comments: {article.comments}</p>
-        <CommentList id={this.props.params.article} />
+        <CommentList id={this.props.params.article.toLowerCase} />
       </div>
     );
   }

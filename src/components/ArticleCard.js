@@ -12,7 +12,7 @@ const ArticleCard = function (props) {
         </div>
         <div className='media-content'>
           <div className='content'>
-            <Link to={`/articles/${props.articleId}`}>{props.title}</Link>
+            <Link to={`/articles/${props.articleId}`}>{props.votes + ' ' +props.title}</Link>
           </div>
         </div>
       </article>

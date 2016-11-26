@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 const User = React.createClass({
   componentWillMount: function () {
-    this.props.fetchUserProfile(this.props.params.username);
+    this.props.fetchUserProfile(this.props.params.username.toLowerCase());
     // this.props.fetchUserRepos(this.props.params.username);
   },
 

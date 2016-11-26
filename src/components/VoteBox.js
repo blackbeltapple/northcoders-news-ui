@@ -4,13 +4,23 @@ import actions from '../actions/actions';
 
 
 const VoteBox = React.createClass({
+  getInitialState: function () {
+    return {
+      votes: this.props.votes
+    }
+  },
   handleUp: function () {
-    console.log('up');
+    this.props.editVote(this.props.type, this.props.articleId);
+    this.setState({
+      votes: this.state.votes + 1
+    });
   },
 
   handleDown: function () {
-    console.log('down', this.props.type,  this.props.articleId, this.props.commentId );
     this.props.editVote(this.props.type, this.props.articleId);
+    this.setState({
+      votes: this.state.votes - 1
+    });
 
   },
 
@@ -22,7 +32,7 @@ const VoteBox = React.createClass({
     return (
       <div>
         <button onClick={this.handleUp}>+</button>
-        <p>{votes}</p>
+        <p>{this.state.votes}</p>
         <button onClick={this.handleDown}>-</button>
       </div>
     );
