@@ -10,12 +10,6 @@ const CommentForm = React.createClass({
     };
   },
 
-  handleNameChange: function (event) {
-    this.setState({
-      name: event.target.value
-    });
-  },
-
   handleBodyChange: function (event) {
     this.setState({
       body: event.target.value
@@ -31,14 +25,7 @@ const CommentForm = React.createClass({
     return (
       <div className='box' >
         <form onSubmit={this.handleSubmit}>
-          <label className="label">Name</label>
-          <p className="control">
-            <input className="input"
-              type="text" placeholder=""
-              onChange={this.handleNameChange}
-            />
-          </p>
-          <label className="label">Message</label>
+          <label className="label">Comment - posting as Northcoder</label>
           <p className="control">
             <textarea
               className="textarea"
