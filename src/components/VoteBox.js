@@ -25,15 +25,12 @@ const VoteBox = React.createClass({
   },
 
   render: function () {
-    // let comment = this.props.commentId;
-    // let article = this.props.articleId;
-    // let type = this.props.type;
     // let votes = this.props.votes;
-    // console.log('Votebox render')
+    // <p className='has-text-centered'>{this.props.votes}</p>
     return (
       <div>
         <button onClick={this.handleUp}>+</button>
-        <p className='has-text-centered'>{this.state.votes}</p>
+        <p className='has-text-centered'>{this.props.votes}</p>
         <button onClick={this.handleDown}>-</button>
       </div>
     );

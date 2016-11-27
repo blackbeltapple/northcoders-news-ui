@@ -118,20 +118,6 @@ function reducer (prevState = initialState, action) {
       newState.error = action.error;
       return;
 
-    // case types.FETCH_USERREPOS_SUCCESS:
-    //   newState.loading = false;
-    //   newState.repos = action.data.repos;
-    //   return newState;
-    //
-    // case types.FETCH_USERREPOS_REQUEST:
-    //   newState.loading = true;
-    //   return newState;
-    //
-    // case types.FETCH_USERREPOS_ERROR:
-    //   newState.loading = false;
-    //   newState.error = action.error;
-    //   return;
-
     case types.ADD_COMMENT_REQUEST:
       newState.loading = true;
       return newState;

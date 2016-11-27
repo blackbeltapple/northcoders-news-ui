@@ -4,8 +4,6 @@ import { ROOT } from '../../config';
 
 const actions = {};
 actions.editVote = function (type, id, upOrDown) {
-  // e.g: http://northcoders-news-api.herokuapp.com/api/articles/:article_id?vote=up
-  console.log(`HTTP string is ${ROOT}/articles/${id}?vote=${upOrDown}`);
   return (dispatch) => {
     dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
     request
@@ -23,7 +21,6 @@ actions.fetchArticles = function (topic) {
   var getString = `${ROOT}/articles`;
   // if topic is a string, then GET request string is `${ROOT}/topics/${topic}/articles`
   if (topic.length > 0) getString = `${ROOT}/topics/${topic.toLowerCase()}/articles`;
-  console.log('getString ', getString)
   return (dispatch) => {
     dispatch({ type: types.FETCH_ARTICLES_REQUEST });
     request
@@ -87,18 +84,6 @@ actions.fetchUserProfile = function (username) {
   };
 };
 
-actions.fetchUserRepos = function (username) {
-  return (dispatch) => {
-    dispatch({ type: types.FETCH_USERREPOS_REQUEST });
-    request
-      .get(`${ROOT}/users/${username}/repos`)
-      .end((err, res) => {
-        if (err) dispatch({ type: types.FETCH_USERREPOS_ERROR, err });
-        else dispatch({ type: types.FETCH_USERREPOS_SUCCESS, data: res.body });
-      });
-  };
-};
-
 actions.addComment = function (body, id) {
   let articleId = id;
   return (dispatch) => {
@@ -142,23 +127,7 @@ actions.fetchArticleError = function (error) {
     error: error
   };
 };
-actions.fetchArticleByTopicSuccess = function (data) {
-  return {
-    type: types.FETCH_ARTICLES_BYTOPIC_SUCCESS,
-    data: data
-  };
-};
-actions.fetchArticleByTopicRequest = function () {
-  return {
-    type: types.FETCH_ARTICLES_BYTOPIC_REQUEST
-  };
-};
-actions.fetchArticleByTopicError = function (error) {
-  return {
-    type: types.FETCH_ARTICLES_BYTOPIC_ERROR,
-    error: error
-  };
-};
+
 actions.fetchTopicsSuccess = function (data) {
   return {
     type: types.FETCH_TOPICS_SUCCESS,
@@ -284,25 +253,6 @@ actions.deleteCommentError = function (error) {
     error: error
   };
 };
-// // FETCH_USERREPOS_REQUEST
-// actions.fetchUserReposSuccess = function (data) {
-//   return {
-//     type: types.FETCH_USERREPOS_SUCCESS,
-//     data: data
-//   };
-// };
-// actions.fetchUserReposRequest = function () {
-//   return {
-//     type: types.FETCH_USERREPOS_REQUEST
-//   };
-// };
-// actions.fetchUserReposError = function (error) {
-//   return {
-//     type: types.FETCH_USERREPOS_ERROR,
-//     error: error
-//   };
-// };
-
 actions.setFilter = function (filter) {
   return {
     type: types.SET_FILTER,
