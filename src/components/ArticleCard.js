@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 
 const ArticleCard = function (props) {
   let articleId = props.articleId;
-  console.log('ArticleCard render')
+  console.log('ArticleCard render');
 
   return (
     <div className='box'>
@@ -14,7 +14,7 @@ const ArticleCard = function (props) {
         </div>
         <div className='media-content'>
           <div className='content'>
-            <Link to={`/articles/${props.articleId}`}>{props.votes + ' ' +props.title}</Link>
+            <Link to={`/articles/${props.articleId}`}>{props.votes + ' ' + props.title}</Link>
           </div>
         </div>
       </article>

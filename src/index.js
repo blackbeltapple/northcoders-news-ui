@@ -13,7 +13,7 @@ import UserList from './components/Userlist';
 import User from './components/User';
 import TopicBar from './components/TopicBar';
 
-//const store = createStore(reducer, applyMiddleware(thunk));
+// const store = createStore(reducer, applyMiddleware(thunk));
 const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
 ReactDOM.render(<Provider store={store}>

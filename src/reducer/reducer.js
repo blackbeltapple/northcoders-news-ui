@@ -144,7 +144,6 @@ function reducer (prevState = initialState, action) {
     default:
       return prevState;
   }
-  return newState;
 }
 
 export default reducer;
