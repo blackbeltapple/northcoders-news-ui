@@ -14,12 +14,23 @@ const User = React.createClass({
     //  ${this.props.username}, ${this.props.avatar_url}
     // console.log('render', this.props.users);
     return (
-      <div>
-        <p >Params: {this.props.params.username}</p>
-        <p >Username: {this.props.users[0].username}</p>
-        <p >Name: {this.props.users[0].name}</p>
-        <a href={this.props.users[0].avatar_url} />
-        <img src={this.props.users[0].avatar_url} alt="some text" />
+      <div className='card'>
+        <div className='card-image'>
+          <img src={this.props.users[0].avatar_url} alt="" />
+        </div>
+        <div className='card-content'>
+          <div className='media'>
+            <div className="media-content">
+              <p className="title is-5">{this.props.users[0].name}</p>
+              <p className="subtitle is-6">{this.props.params.username}</p>
+            </div>
+          </div>
+          <div className="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris.
+            <br />
+          </div>
+        </div>
       </div>
     );
   }

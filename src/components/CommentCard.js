@@ -15,20 +15,21 @@ const CommentCard = React.createClass({
     return (
 
       <div className='box'>
+        <article className="media">
           <div className='media-left'>
             <VoteBox votes={this.props.votes} type='comment' commentId={this.props.commentId} />
           </div>
           <div className='media-content'>
             <div className='content'>
               <p>
-                <strong>{this.props.created_by}</strong> <small>@johnsmith</small> <small>{this.props.created_at}</small>
+                <strong>{this.props.created_by}</strong> <small>Created at: {this.props.created_at}</small>
                 <br />
                 {this.props.body}
               </p>
             </div>
           </div>
+        </article>
       </div>
-
     );
   }
 });

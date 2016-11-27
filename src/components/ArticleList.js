@@ -28,7 +28,14 @@ const ArticleList = React.createClass({
     return (
       <div id='ArticleList'>
         {filtered.map((article, i) => {
-          return <ArticleCard title={article.title} votes={article.votes} articleId={article._id} key={i} />;
+          return <ArticleCard
+            title={article.title}
+            votes={article.votes}
+            articleId={article._id}
+            belongs_to={article.belongs_to}
+            created_by={article.created_by}
+            comments={article.comments}
+            key={i} />;
         })}
       </div>
     );
