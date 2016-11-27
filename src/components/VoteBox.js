@@ -10,14 +10,14 @@ const VoteBox = React.createClass({
     }
   },
   handleUp: function () {
-    this.props.editVote(this.props.type, this.props.articleId);
+    this.props.editVote(this.props.type, this.props.articleId, 'up');
     this.setState({
       votes: this.state.votes + 1
     });
   },
 
   handleDown: function () {
-    this.props.editVote(this.props.type, this.props.articleId);
+    this.props.editVote(this.props.type, this.props.articleId, 'down');
     this.setState({
       votes: this.state.votes - 1
     });
@@ -42,8 +42,8 @@ const VoteBox = React.createClass({
 
 function mapDispatchToProps (dispatch, props) {
   return {
-    editVote: (type, ID) => {
-      dispatch(actions.editVote(type, ID));
+    editVote: (type, ID, upOrDown) => {
+      dispatch(actions.editVote(type, ID, upOrDown));
     }
   };
 };

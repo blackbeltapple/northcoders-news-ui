@@ -15,7 +15,6 @@ const TopicBar = React.createClass({
   },
 
   renderTopics: function () {
-    // let that = this;
     return (
         this.props.topics.map((topic, i) => {
           return (

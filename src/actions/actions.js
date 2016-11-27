@@ -3,13 +3,13 @@ import request from 'superagent';
 import { ROOT } from '../../config';
 
 const actions = {};
-actions.editVote = function (type, id) {
+actions.editVote = function (type, id, upOrDown) {
   // e.g: http://northcoders-news-api.herokuapp.com/api/articles/:article_id?vote=up
-  console.log(`${ROOT}/articles/${id}?vote=up`);
+  console.log(`HTTP string is ${ROOT}/articles/${id}?vote=${upOrDown}`);
   return (dispatch) => {
     dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
     request
-      .put(`${ROOT}/articles/${id}?vote=up`)
+      .put(`${ROOT}/articles/${id}?vote=${upOrDown}`)
       .end((err, res) => {
         if (err) dispatch({ type: types.PUTVOTE_ARTICLE_ERROR, err });
         else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body });
@@ -35,17 +35,7 @@ actions.fetchArticles = function (topic) {
   };
 };
 
-actions.fetchArticlesByTopic = function (topic) {
-  return (dispatch) => {
-    dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_REQUEST });
-    request
-      .get(`${ROOT}/topics/${topic}/articles`)
-      .end((err, res) => {
-        if (err) dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_ERROR, err });
-        else dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_SUCCESS, data: res.body });
-      });
-  };
-};
+
 
 actions.fetchTopics = function () {
   return (dispatch) => {
