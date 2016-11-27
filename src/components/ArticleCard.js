@@ -13,10 +13,11 @@ const ArticleCard = function (props) {
         </div>
         <div className='media-content'>
           <div className='content'>
-            <strong><Link to={`/articles/${props.articleId}`}>{props.votes + ' ' + props.title}</Link></strong><small>{props.created_by}</small>
-              {props.body}
-              <br /><small>Topic: {props.belongs_to}</small>
-              <br /><small>Comments: {props.comments}</small>
+            <strong><Link to={`/articles/${props.articleId}`}>{props.votes + ' ' + props.title}</Link></strong>
+            <br /><small>{props.created_by}</small>
+            {props.body}
+            <br /><small>Topic: {props.belongs_to}</small>
+            <br /><small>Comments: {props.comments}</small>
           </div>
         </div>
       </article >

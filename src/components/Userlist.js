@@ -13,11 +13,15 @@ const UserList = React.createClass({
     //
     return (
       <div id='UserList' className='box'>
-        User List
+        <h3 className='title is-5'>User List</h3>
         {
           this.props.users.map((user, i) => {
             // console.log(user.name);
-            return <UserCard name={user.name} username={user.username} url={user.avatar_url} />;
+            return <UserCard
+              name={user.name}
+              username={user.username}
+              url={user.avatar_url}
+              key={i} />;
           })
         }
       </div>

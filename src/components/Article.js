@@ -20,14 +20,25 @@ const Article = React.createClass({
     console.log('Article render');
     let article = this.findArticle()[0];
     return (
-      <div className='box'>
-        <h1 >{article.title}</h1>
-        <p >{article.body}</p>
-        <p >{article._id}</p>
-        <p >Created by: {article.created_by}</p>
-        <p >Comments: {article.comments}</p>
-        <p >Votes: {article.votes}</p>
-        <CommentList id={this.props.params.article.toLowerCase()} />
+      <div className="box">
+        <article className="media">
+          <div className="media-left">
+          </div>
+          <div className="media-content">
+            <div className="content">
+              <p>
+                <strong className='title is-4'>{article.title}</strong>
+                <br />
+                {article.body}
+                <br />
+                <small>Created by: {article.created_by}</small>
+                <br />
+                <small>Comments: {article.comments}</small>
+              </p>
+            </div>
+          </div>
+        </article>
+          <CommentList id={this.props.params.article.toLowerCase()} />
       </div>
     );
   }

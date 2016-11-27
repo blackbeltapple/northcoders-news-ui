@@ -33,7 +33,7 @@ const VoteBox = React.createClass({
     return (
       <div>
         <button onClick={this.handleUp}>+</button>
-        <p>{this.state.votes}</p>
+        <p className='has-text-centered'>{this.state.votes}</p>
         <button onClick={this.handleDown}>-</button>
       </div>
     );
