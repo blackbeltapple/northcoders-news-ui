@@ -28,7 +28,8 @@ const VoteBox = React.createClass({
     // let comment = this.props.commentId;
     // let article = this.props.articleId;
     // let type = this.props.type;
-    let votes = this.props.votes;
+    // let votes = this.props.votes;
+    console.log('Votebox render')
     return (
       <div>
         <button onClick={this.handleUp}>+</button>

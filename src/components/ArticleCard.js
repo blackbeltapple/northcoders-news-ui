@@ -4,11 +4,13 @@ import {Link} from 'react-router';
 
 const ArticleCard = function (props) {
   let articleId = props.articleId;
+  console.log('ArticleCard render')
+
   return (
     <div className='box'>
       <article className='media'>
         <div className='media-left'>
-          <p><VoteBox votes={props.votes} type='article' articleId={articleId} /></p>
+          <VoteBox votes={props.votes} type='article' articleId={articleId} />
         </div>
         <div className='media-content'>
           <div className='content'>

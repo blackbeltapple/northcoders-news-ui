@@ -9,7 +9,7 @@ actions.editVote = function (type, id) {
   return (dispatch) => {
     dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
     request
-      .put(`${ROOT}/articles/${id}?vote=down`)
+      .put(`${ROOT}/articles/${id}?vote=up`)
       .end((err, res) => {
         if (err) dispatch({ type: types.PUTVOTE_ARTICLE_ERROR, err });
         else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body });
@@ -101,6 +101,18 @@ actions.addComment = function (body, id) {
       .end((err, res) => {
         if (err) dispatch({ type: types.ADD_COMMENT_ERROR, err });
         else dispatch({ type: types.ADD_COMMENT_SUCCESS, data: res.body });
+      });
+  };
+};
+
+actions.deleteComment = function (commentId) {
+  return (dispatch) => {
+    dispatch({ type: types.DELETE_COMMENT_REQUEST });
+    request
+      .delete(`${ROOT}/comments/${commentId}`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.DELETE_COMMENT_ERROR, err });
+        else dispatch({ type: types.DELETE_COMMENT_SUCCESS, data: res.body });
       });
   };
 };
@@ -212,6 +224,24 @@ actions.editVoteError = function (error) {
   };
 };
 
+
+actions.deleteCommentSuccess = function (data) {
+  return {
+    type: types.DELETE_COMMENT_SUCCESS,
+    data: data
+  };
+};
+actions.deleteCommentRequest = function () {
+  return {
+    type: types.DELETE_COMMENT_REQUEST
+  };
+};
+actions.deleteCommentError = function (error) {
+  return {
+    type: types.DELETE_COMMENT_ERROR,
+    error: error
+  };
+};
 // // FETCH_USERREPOS_REQUEST
 // actions.fetchUserReposSuccess = function (data) {
 //   return {

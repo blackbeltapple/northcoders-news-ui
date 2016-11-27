@@ -17,15 +17,17 @@ const Article = React.createClass({
     return find;
   },
   render: function () {
+    console.log('Article render');
     let article = this.findArticle()[0];
-
     return (
       <div className='box'>
-        <h1 className='title is-3'>{article.title}</h1>
-        <p className='title is-5'>{article.body}</p>
-        <p className='title is-6'>Created by: {article.created_by}</p>
-        <p className='title is-6'>Comments: {article.comments}</p>
-        <CommentList id={this.props.params.article.toLowerCase} />
+        <h1 >{article.title}</h1>
+        <p >{article.body}</p>
+        <p >{article._id}</p>
+        <p >Created by: {article.created_by}</p>
+        <p >Comments: {article.comments}</p>
+        <p >Votes: {article.votes}</p>
+        <CommentList id={this.props.params.article.toLowerCase()} />
       </div>
     );
   }

@@ -104,6 +104,20 @@ function reducer (prevState = initialState, action) {
       newState.error = action.error;
       return;
 
+    case types.DELETE_COMMENT_SUCCESS:
+      newState.loading = false;
+      // newState.users = action.data.users;
+      return newState;
+
+    case types.DELETE_COMMENT_REQUEST:
+      newState.loading = true;
+      return newState;
+
+    case types.DELETE_COMMENT_ERROR:
+      newState.loading = false;
+      newState.error = action.error;
+      return;
+
     // case types.FETCH_USERREPOS_SUCCESS:
     //   newState.loading = false;
     //   newState.repos = action.data.repos;

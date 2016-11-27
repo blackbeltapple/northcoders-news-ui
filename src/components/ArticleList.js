@@ -18,6 +18,7 @@ const ArticleList = React.createClass({
     return filteredArticles;
   },
   render () {
+    console.log('ArticleList render')
     let filtered = this.filteredArticles();
     return (
       <div id='ArticleList'>
