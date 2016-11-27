@@ -136,7 +136,6 @@ function reducer (prevState = initialState, action) {
       newState.loading = true;
       return newState;
 
-
     case types.ADD_COMMENT_SUCCESS:
       newState.loading = false;
       let newObj = {};

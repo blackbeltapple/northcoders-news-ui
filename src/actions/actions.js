@@ -17,11 +17,17 @@ actions.editVote = function (type, id) {
   };
 };
 
-actions.fetchArticles = function () {
+actions.fetchArticles = function (topic) {
+  // if topic is undefined/empty string then string is `${ROOT}/articles`
+  topic = topic || ''
+  var getString = `${ROOT}/articles`;
+  // if topic is a string, then GET request string is `${ROOT}/topics/${topic}/articles`
+  if (topic.length > 0) getString = `${ROOT}/topics/${topic.toLowerCase()}/articles`;
+  console.log('getString ', getString)
   return (dispatch) => {
     dispatch({ type: types.FETCH_ARTICLES_REQUEST });
     request
-      .get(`${ROOT}/articles`)
+      .get(getString)
       .end((err, res) => {
         if (err) dispatch({ type: types.FETCH_ARTICLES_ERROR, err });
         else dispatch({ type: types.FETCH_ARTICLES_SUCCESS, data: res.body });
@@ -40,7 +46,6 @@ actions.fetchArticlesByTopic = function (topic) {
       });
   };
 };
-
 
 actions.fetchTopics = function () {
   return (dispatch) => {
@@ -217,7 +222,7 @@ actions.fetchCommentsError = function (error) {
     error: error
   };
 };
-// FETCH_USERPROFILE_REQUEST
+
 actions.fetchUserProfileSuccess = function (data) {
   return {
     type: types.FETCH_USERPROFILE_SUCCESS,

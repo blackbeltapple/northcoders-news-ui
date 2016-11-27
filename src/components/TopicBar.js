@@ -11,6 +11,7 @@ const TopicBar = React.createClass({
 
   changeTopic: function (event) {
     this.props.setFilter(event.target.value);
+    this.props.fetchArticles(event.target.value);
   },
 
   renderTopics: function () {
@@ -25,7 +26,7 @@ const TopicBar = React.createClass({
   },
 
   render: function () {
-    console.log('TopicBar render')
+    // console.log('TopicBar render')
     return (
       <div>
         <Link to={`/articles`}><button value={''} key={100} onClick={this.changeTopic}>All Articles</button></Link>
@@ -50,6 +51,9 @@ function mapDispatchToProps (dispatch, props) {
     },
     setFilter: (value) => {
       dispatch(actions.setFilter(value));
+    },
+    fetchArticles: (topic) => {
+      dispatch(actions.fetchArticles(topic));
     }
   };
 }
