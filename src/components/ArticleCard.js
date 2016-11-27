@@ -8,7 +8,6 @@ const ArticleCard = function (props) {
 
   return (
     <div className='box'>
-      <article className='media'>
         <div className='media-left'>
           <VoteBox votes={props.votes} type='article' articleId={articleId} />
         </div>
@@ -17,7 +16,6 @@ const ArticleCard = function (props) {
             <Link to={`/articles/${props.articleId}`}>{props.votes + ' ' + props.title}</Link>
           </div>
         </div>
-      </article>
     </div>
   );
 };

@@ -13,15 +13,22 @@ const CommentCard = React.createClass({
 
   render () {
     return (
+
       <div className='box'>
-        <VoteBox votes={this.props.votes} type='comment' commentId={this.props.commentId} />
-        <p className='title is-3'>Body: {this.props.body}</p>
-        <p className='title is-5'>Created by: {this.props.created_by}</p>
-        <p className='title is-5'>Created at: {this.props.created_at}</p>
-        <p className='title is-5'>_id: {this.props.commentId}</p>
-        <p className='title is-5'>Belongs to article: {this.props.belongs_to}</p>
-        {this.props.created_by === 'northcoder' ? <button onClick={this.handleDelete}>delete comment</button> : <p /> }
+          <div className='media-left'>
+            <VoteBox votes={this.props.votes} type='comment' commentId={this.props.commentId} />
+          </div>
+          <div className='media-content'>
+            <div className='content'>
+              <p>
+                <strong>{this.props.created_by}</strong> <small>@johnsmith</small> <small>{this.props.created_at}</small>
+                <br />
+                {this.props.body}
+              </p>
+            </div>
+          </div>
       </div>
+
     );
   }
 });
