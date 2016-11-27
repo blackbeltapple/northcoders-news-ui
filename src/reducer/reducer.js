@@ -133,6 +133,12 @@ function reducer (prevState = initialState, action) {
     //   return;
 
     case types.ADD_COMMENT_REQUEST:
+      newState.loading = true;
+      return newState;
+
+
+    case types.ADD_COMMENT_SUCCESS:
+      newState.loading = false;
       let newObj = {};
       newObj.body = action.body;
       newObj.id = action.id;
@@ -140,6 +146,12 @@ function reducer (prevState = initialState, action) {
       newComments.push(newObj);
       newState.comments = newComments;
       return newState;
+
+    case types.ADD_COMMENT_ERROR:
+      newState.loading = false;
+      newState.error = action.error;
+      return;
+
 
     default:
       return prevState;

@@ -29,6 +29,19 @@ actions.fetchArticles = function () {
   };
 };
 
+actions.fetchArticlesByTopic = function (topic) {
+  return (dispatch) => {
+    dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_REQUEST });
+    request
+      .get(`${ROOT}/topics/${topic}/articles`)
+      .end((err, res) => {
+        if (err) dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_ERROR, err });
+        else dispatch({ type: types.FETCH_ARTICLES_BYTOPIC_SUCCESS, data: res.body });
+      });
+  };
+};
+
+
 actions.fetchTopics = function () {
   return (dispatch) => {
     dispatch({ type: types.FETCH_TOPICS_REQUEST });
@@ -125,12 +138,29 @@ actions.fetchArticleSuccess = function (data) {
 };
 actions.fetchArticleRequest = function () {
   return {
-    type: types.FETCH_ARTICLES_SUCCESS
+    type: types.FETCH_ARTICLES_REQUEST
   };
 };
 actions.fetchArticleError = function (error) {
   return {
-    type: types.FETCH_ARTICLES_SUCCESS,
+    type: types.FETCH_ARTICLES_ERROR,
+    error: error
+  };
+};
+actions.fetchArticleByTopicSuccess = function (data) {
+  return {
+    type: types.FETCH_ARTICLES_BYTOPIC_SUCCESS,
+    data: data
+  };
+};
+actions.fetchArticleByTopicRequest = function () {
+  return {
+    type: types.FETCH_ARTICLES_BYTOPIC_REQUEST
+  };
+};
+actions.fetchArticleByTopicError = function (error) {
+  return {
+    type: types.FETCH_ARTICLES_BYTOPIC_ERROR,
     error: error
   };
 };
@@ -172,18 +202,18 @@ actions.fetchUsersError = function (error) {
 
 actions.fetchCommentsSuccess = function (data) {
   return {
-    type: types.FETCH_ARTICLE_SUCCESS,
+    type: types.FETCH_COMMENTS_SUCCESS,
     data: data
   };
 };
 actions.fetchCommentsRequest = function () {
   return {
-    type: types.FETCH_ARTICLE_REQUEST
+    type: types.FETCH_COMMENTS_REQUEST
   };
 };
 actions.fetchCommentsError = function (error) {
   return {
-    type: types.FETCH_ARTICLE_ERROR,
+    type: types.FETCH_COMMENTS_ERROR,
     error: error
   };
 };
@@ -224,6 +254,23 @@ actions.editVoteError = function (error) {
   };
 };
 
+actions.addCommentSuccess = function (data) {
+  return {
+    type: types.ADD_COMMENT_SUCCESS,
+    data: data
+  };
+};
+actions.addCommentRequest = function () {
+  return {
+    type: types.ADD_COMMENT_REQUEST
+  };
+};
+actions.addCommentError = function (error) {
+  return {
+    type: types.ADD_COMMENT_ERROR,
+    error: error
+  };
+};
 
 actions.deleteCommentSuccess = function (data) {
   return {
