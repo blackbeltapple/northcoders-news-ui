@@ -12,27 +12,11 @@ const NavBar = React.createClass({
               <img src='http://www.thesharpproject.co.uk/assets/Northcoders_gallery.png' alt='Northcoders' />
             </figure>
           </div>
-          <div className='nav-center'>
+          <div className='nav-left'>
             <a className='nav-item' href='#'>
               <span className='icon'>
-                <i className='fa fa-github' />
+                Northcoder News
               </span>
-            </a>
-            <a className='nav-item' href='#'>
-              <span className='icon'>
-                <i className='fa fa-twitter' />
-              </span>
-            </a>
-          </div>
-          <div className='nav-right nav-menu'>
-            <a className='nav-item' href='#'>
-              Home
-            </a>
-            <a className='nav-item' href='#'>
-              Documentation
-            </a>
-            <a className='nav-item' href='#'>
-              Blog
             </a>
           </div>
         </nav>
