@@ -5,7 +5,7 @@ import ArticleCard from './ArticleCard';
 
 const ArticleList = React.createClass({
   componentWillMount () {
-    console.log('componentwillMount ArticleList');
+    // console.log('componentwillMount ArticleList');
     // how to get params in here for when user comes direct to URL
     // Need to see Harriet's link on how to do this
     this.props.fetchArticles(this.props.filter);
@@ -22,7 +22,7 @@ const ArticleList = React.createClass({
   // },
 
   render () {
-    console.log('ArticleList render');
+    // console.log('ArticleList render');
     // let filtered = this.filteredArticles();
     let filtered = this.props.articles;
     return (

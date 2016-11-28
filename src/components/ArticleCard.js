@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 
 const ArticleCard = function (props) {
   let articleId = props.articleId;
-  console.log('ArticleCard render');
+  // console.log('ArticleCard render');
   return (
     <div className='box'>
       <article className="media">

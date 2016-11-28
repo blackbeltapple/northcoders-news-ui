@@ -9,6 +9,20 @@ const VoteBox = React.createClass({
       votes: this.props.votes
     }
   },
+
+  // shouldComponentUpdate: function(nextProps, nextState){
+  //   // return a boolean value
+  //   console.log('shouldComponentUpdate')
+  //   return true;
+  // },
+  componentWillReceiveProps: function (nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+    this.setState({
+      // set state to equal nextprops
+      votes: nextProps.votes
+    });
+  },
+
   handleUp: function () {
     console.log('handleUp', this.state.votes)
     this.props.editVote(this.props.type, this.props.articleId, 'up');
@@ -28,7 +42,7 @@ const VoteBox = React.createClass({
   render: function () {
     // let votes = this.props.votes;
     // <p className='has-text-centered'>{this.props.votes}</p>
-    console.log('VoteBox render')
+    // console.log('VoteBox render')
     return (
       <div>
         <button onClick={this.handleUp}>+</button>
