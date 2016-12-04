@@ -23,8 +23,8 @@ const NavBar = React.createClass({
         <nav className='nav has-shadow'>
           <div className='container'>
             <div className='nav-left'>
-              <a className='nav-item is-tab is-active'><Link to='/'>Articles</Link></a>
-              <a className='nav-item is-tab'><Link to='/userlist'>Users</Link></a>
+              <p className='nav-item is-tab is-active'><Link to='/'>Articles</Link></p>
+              <p className='nav-item is-tab'><Link to='/userlist'>Users</Link></p>
             </div>
           </div>
         </nav>
