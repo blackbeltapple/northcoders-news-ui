@@ -7,7 +7,7 @@ actions.editVote = function (type, id, upOrDown) {
   return (dispatch) => {
     dispatch({ type: types.PUTVOTE_ARTICLE_REQUEST });
     request
-      .put(`${ROOT}/articles/${id}?vote=${upOrDown}`)
+      .put(`${ROOT}/${type}/${id}?vote=${upOrDown}`)
       .end((err, res) => {
         if (err) dispatch({ type: types.PUTVOTE_ARTICLE_ERROR, err });
         else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body });
