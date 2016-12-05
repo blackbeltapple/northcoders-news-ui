@@ -3,5 +3,5 @@ node_modules/*
 .DS_Store
 **/*/*.log
 **/*/.DS_Store
-npm-debug.*
 public/js/bundle.js
+npm-debug.log

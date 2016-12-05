@@ -14,6 +14,7 @@ const CommentCard = React.createClass({
   render () {
     return (
 
+
       <div className='box'>
         <article className="media">
           <div className='media-left'>
@@ -36,7 +37,8 @@ const CommentCard = React.createClass({
 
 function mapStateToProps (state) {
   return {
-    comments: state.comments
+    comments: state.comments,
+    loading: state.loading
   };
 }
 

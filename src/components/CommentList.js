@@ -10,7 +10,11 @@ const CommentList = React.createClass({
   },
   renderCommments: function () {
     if (this.props.loading === true) {
-      return 'Hello';
+      return (
+        <a className="button is-primary is-loading">
+          Button
+        </a>
+      )
     }
     let find = this.props.comments.map((comment, i) => {
       return <CommentCard body={comment.body} commentId={comment._id} created_by={comment.created_by} votes={comment.votes} created_at={comment.created_at} belongs_to={comment.belongs_to} key={i} />;
