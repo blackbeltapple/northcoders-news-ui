@@ -92,7 +92,8 @@ function reducer (prevState = initialState, action) {
 
     case types.PUTVOTE_ARTICLE_SUCCESS:
       newState.loading = false;
-      // newState.users = action.data.users;
+      // added
+      console.log('action.data.votes ', action.data.votes)
       return newState;
 
     case types.PUTVOTE_ARTICLE_REQUEST:
@@ -106,7 +107,6 @@ function reducer (prevState = initialState, action) {
 
     case types.DELETE_COMMENT_SUCCESS:
       newState.loading = false;
-      // newState.users = action.data.users;
       return newState;
 
     case types.DELETE_COMMENT_REQUEST:
