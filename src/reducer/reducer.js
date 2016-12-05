@@ -124,11 +124,8 @@ function reducer (prevState = initialState, action) {
 
     case types.ADD_COMMENT_SUCCESS:
       newState.loading = false;
-      let newObj = {};
-      newObj.body = action.body;
-      newObj.id = action.id;
       let newComments = newState.comments.slice();
-      newComments.push(newObj);
+      newComments.push(action.data.comment);
       newState.comments = newComments;
       return newState;
 
