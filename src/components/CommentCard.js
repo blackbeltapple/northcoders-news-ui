@@ -17,7 +17,7 @@ const CommentCard = React.createClass({
       <div className='box'>
         <article className="media">
           <div className='media-left'>
-            <VoteBox votes={this.props.votes} type='comments' commentId={this.props.commentId} />
+            <VoteBox votes={this.props.votes} type='comments' id={this.props.commentId} />
           </div>
           <div className='media-content'>
             <div className='content'>

@@ -25,7 +25,7 @@ const VoteBox = React.createClass({
 
   handleUp: function () {
     console.log('handleUp', this.state.votes)
-    this.props.editVote(this.props.type, this.props.articleId, 'up');
+    this.props.editVote(this.props.type, this.props.id, 'up');
     this.setState({
       votes: this.state.votes + 1
     });
