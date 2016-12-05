@@ -27,7 +27,7 @@ function reducer (prevState = initialState, action) {
     case types.FETCH_ARTICLES_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.FETCH_TOPICS_SUCCESS:
       newState.loading = false;
@@ -41,7 +41,7 @@ function reducer (prevState = initialState, action) {
     case types.FETCH_TOPICS_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.SET_FILTER:
       let toLower = action.filter.toLowerCase();
@@ -60,7 +60,7 @@ function reducer (prevState = initialState, action) {
     case types.FETCH_USERS_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.FETCH_COMMENTS_SUCCESS:
       newState.loading = false;
@@ -74,7 +74,7 @@ function reducer (prevState = initialState, action) {
     case types.FETCH_COMMENTS_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.FETCH_USERPROFILE_SUCCESS:
       newState.loading = false;
@@ -88,7 +88,7 @@ function reducer (prevState = initialState, action) {
     case types.FETCH_USERPROFILE_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.PUTVOTE_ARTICLE_SUCCESS:
       newState.loading = false;
@@ -102,7 +102,7 @@ function reducer (prevState = initialState, action) {
     case types.PUTVOTE_ARTICLE_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.DELETE_COMMENT_SUCCESS:
       newState.loading = false;
@@ -116,7 +116,7 @@ function reducer (prevState = initialState, action) {
     case types.DELETE_COMMENT_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
+      return newState;
 
     case types.ADD_COMMENT_REQUEST:
       newState.loading = true;
@@ -135,8 +135,7 @@ function reducer (prevState = initialState, action) {
     case types.ADD_COMMENT_ERROR:
       newState.loading = false;
       newState.error = action.error;
-      return;
-
+      return newState;
 
     default:
       return prevState;

@@ -17,7 +17,7 @@ actions.editVote = function (type, id, upOrDown) {
 
 actions.fetchArticles = function (topic) {
   // if topic is undefined/empty string then string is `${ROOT}/articles`
-  topic = topic || ''
+  topic = topic || '';
   var getString = `${ROOT}/articles`;
   // if topic is a string, then GET request string is `${ROOT}/topics/${topic}/articles`
   if (topic.length > 0) getString = `${ROOT}/topics/${topic.toLowerCase()}/articles`;
@@ -31,8 +31,6 @@ actions.fetchArticles = function (topic) {
       });
   };
 };
-
-
 
 actions.fetchTopics = function () {
   return (dispatch) => {
