@@ -32,7 +32,7 @@ const VoteBox = React.createClass({
   },
 
   handleDown: function () {
-    this.props.editVote(this.props.type, this.props.articleId, 'down');
+    this.props.editVote(this.props.type, this.props.id, 'down');
     this.setState({
       votes: this.state.votes - 1
     });
