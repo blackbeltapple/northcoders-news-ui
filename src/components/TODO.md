@@ -1,6 +1,5 @@
 TO DO
 Refactor to use multiple smaller reducers
-Get Up/Down vote to work for Comments (only works for articles)
 How to get the Active menu to style differently in NavBar and TopicBar
 Read redux-router docs
 WHat do the POST/PUT/DEL actions return? SHould I handle these?
@@ -13,8 +12,8 @@ QUESTIONS FOR NC
   And http://localhost:8080/userlist/tickle122
 
 IN PROGRESS:
-CommentCard has a loading Button
-Add one to CommentCard and all the rest.
+ArticleList has a loading Button
+Add one to comentlist and all the rest.
 Need to do the ternary operator and add the loading state to mapSTateToPoprs
 Maybe create a new component? <Loading />
 this.props.loading ? <Loading />
@@ -28,3 +27,5 @@ FIXED!
     VoteBox does not re-render even when change between topics - this is because I am using State to hold num votes but it does not know to change when you switch Topics?? ArticleList passes num votes to ArticleCard which passes them to VoteBx. But VoteBox render does get called? Even though this does a full HTTP GET. If I stop using the state in VoteBox and use props instead, it will initially reder the correct num votes, but won't update correctly when you click up or down
 
     New comments were not rendering until pag was manually refreshed. Now fixed - was a bug n the reducer, reading the wrong action data.
+
+    Get Up/Down vote to work for Comments (only works for articles)

@@ -114,9 +114,7 @@ function reducer (prevState = initialState, action) {
     case types.DELETE_COMMENT_SUCCESS:
       newState.loading = false;
       var newArray = [].concat(prevState.comments);
-      console.log(action.data._id);
       var index = _.filter(newArray, function (comment) {_
-        console.log(comment._id, action.data._id, comment._id !== action.data._id)
         return comment._id !== action.data._id
       });
       newState.comments = index;

@@ -24,6 +24,14 @@ const ArticleList = React.createClass({
   render () {
     // console.log('ArticleList render');
     // let filtered = this.filteredArticles();
+    if (this.props.loading === true) {
+      return (
+        <a className="button is-primary is-loading">
+          Button
+        </a>
+      )
+    }
+
     let filtered = this.props.articles;
     return (
       <div id='ArticleList'>

@@ -7,7 +7,6 @@ const CommentCard = React.createClass({
   // type='comment' commentId={this.props.commentId}
 
   handleDelete: function () {
-    console.log('delete');
     this.props.deleteComment(this.props.commentId);
   },
 

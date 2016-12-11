@@ -9,7 +9,14 @@ const UserList = React.createClass({
   },
 
   render: function () {
-    console.log('this.props.users', this.props.users);
+    // console.log('this.props.users', this.props.users);
+    if (this.props.loading === true) {
+      return (
+        <a className="button is-primary is-loading">
+          Button
+        </a>
+      )
+    }
     //
     return (
       <div id='UserList' className='box'>
