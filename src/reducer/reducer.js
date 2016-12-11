@@ -1,4 +1,5 @@
 import * as types from '../actions/types';
+const _ = require('underscore');
 
 const initialState = {
   articles: [],
@@ -93,8 +94,12 @@ function reducer (prevState = initialState, action) {
     case types.PUTVOTE_ARTICLE_SUCCESS:
       newState.loading = false;
       // need to update the state here
-      console.log('action.data.votes ', action.data.votes, action.votetype ,action.itemId);
-      // console.log('action.data ', action.data);
+      // console.log('action.data.votes ', action.data.votes, action.votetype ,action.itemId);
+      // if action.votetype is articles - get article list array and swap out the number of votes for that article
+      var newArray = [].concat(prevState.comments);
+      var obj = _.findWhere(newArray, {_id: action.itemId});
+      obj.votes = action.data.votes;
+      newState.comments = newArray;
       return newState;
 
     case types.PUTVOTE_ARTICLE_REQUEST:
