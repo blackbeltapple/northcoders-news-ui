@@ -26,6 +26,8 @@ const CommentCard = React.createClass({
                 <strong>{this.props.created_by}</strong> <small>Created at: {this.props.created_at}</small>
                 <br />
                 {this.props.body}
+                <br />
+                {this.props.created_by === 'northcoder' ? <button  key={100} onClick={this.handleDelete}>delete comment</button> : <br />}
               </p>
             </div>
           </div>
