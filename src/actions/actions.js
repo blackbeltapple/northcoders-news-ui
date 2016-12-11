@@ -10,7 +10,7 @@ actions.editVote = function (type, id, upOrDown) {
       .put(`${ROOT}/${type}/${id}?vote=${upOrDown}`)
       .end((err, res) => {
         if (err) dispatch({ type: types.PUTVOTE_ARTICLE_ERROR, err });
-        else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body });
+        else dispatch({ type: types.PUTVOTE_ARTICLE_SUCCESS, data: res.body, votetype: type, itemId: id });
       });
   };
 };
@@ -198,10 +198,12 @@ actions.fetchUserProfileError = function (error) {
   };
 };
 
-actions.editVoteSuccess = function (data) {
+actions.editVoteSuccess = function (data, type, id) {
   return {
     type: types.PUTVOTE_ARTICLE_SUCCESS,
-    data: data
+    data: data,
+    votetype: type,
+    itemId: id
   };
 };
 actions.editVoteRequest = function () {

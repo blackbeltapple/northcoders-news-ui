@@ -92,8 +92,9 @@ function reducer (prevState = initialState, action) {
 
     case types.PUTVOTE_ARTICLE_SUCCESS:
       newState.loading = false;
-      // added
-      console.log('action.data.votes ', action.data.votes)
+      // need to update the state here
+      console.log('action.data.votes ', action.data.votes, action.votetype ,action.itemId);
+      // console.log('action.data ', action.data);
       return newState;
 
     case types.PUTVOTE_ARTICLE_REQUEST:
